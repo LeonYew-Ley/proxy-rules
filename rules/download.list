@@ -2,3 +2,7 @@
 DOMAIN-SUFFIX,github.com
 DOMAIN-SUFFIX,githubusercontent.com
 DOMAIN-SUFFIX,githubassets.com
+
+# Docker Hub auth, registry, and layer CDNs (Cloudflare / CloudFront).
+DOMAIN-SUFFIX,docker.io
+DOMAIN-SUFFIX,docker.com

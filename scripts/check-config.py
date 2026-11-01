@@ -55,4 +55,33 @@ assert "DOMAIN-SUFFIX,youtube-nocookie.com" in ai_lines
 assert ai_lines.index("DOMAIN-SUFFIX,ytimg.com") < next(
     i for i, line in enumerate(ai_lines) if line.startswith("IP-CIDR,")
 )
-print("OK: group filters, references, video tiers, and thumbnail rules")
+
+download_rule = next(
+    line.split(",", 1)[1]
+    for line in lines
+    if line.startswith("ruleset=") and "/rules/download.list" in line
+)
+assert urlsplit(download_rule).query, "Download rules need a cache version"
+shadowrocket = (ROOT / "leon.conf").read_text(encoding="utf-8").splitlines()
+assert any(
+    line.startswith("RULE-SET," + download_rule + ",") for line in shadowrocket
+), "Both clients must use the same download rule version"
+download_lines = (ROOT / "rules" / "download.list").read_text(encoding="utf-8").splitlines()
+download_suffixes = [
+    line.split(",", 1)[1]
+    for line in download_lines
+    if line.startswith("DOMAIN-SUFFIX,")
+]
+for domain in [
+    "docker.io",
+    "registry-1.docker.io",
+    "auth.docker.io",
+    "production.cloudflare.docker.com",
+    "production.cloudfront.docker.com",
+]:
+    assert any(
+        domain == suffix or domain.endswith("." + suffix)
+        for suffix in download_suffixes
+    ), "Missing Docker download rule: " + domain
+
+print("OK: group filters, references, video tiers, thumbnail rules, and Docker rules")

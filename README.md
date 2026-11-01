@@ -25,7 +25,7 @@
 | `tailscale.list` | DIRECT（仅 Clash） | Tailscale 公共网段与控制面域名；Shadowrocket 用 TAILSCALE 策略，规则写在 `leon.conf` |
 | `steam.list` | 🔰 节点选择 | Steam 登录/商店/社区 |
 | `video.list` | 视频出口 | 大流量视频站 |
-| `download.list` | 下载专用 | GitHub 下载 |
+| `download.list` | 下载专用 | GitHub 下载、Docker Hub 认证/镜像/镜像层 |
 | `work.list` | 主力故障转移 | npm / nuget / zed / learn.microsoft.com |
 | `ai.list` | AI自动选择 | AI、Google、Cloudflare、STUN、公共 DNS IP |
 | `ads.list` | REJECT | 广告（上游自动生成） |
