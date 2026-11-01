@@ -36,7 +36,7 @@
 ## 策略组 / 机场前缀
 
 节点名由 subconverter 加前缀：`EX·` Edge-X（主力）、`PQ·` 赔钱、`SM·` 三毛、`LX·` 良心云。
-Clash 用 `!!GROUP=` 标签过滤，Shadowrocket 用 `policy-regex-filter=^EX·` 过滤，两边口径一致。
+Clash 和 Shadowrocket 都按重命名后的前缀过滤（如 `^EX·`）。不要把 Clash 的分组筛选改回 `!!GROUP=`：当前社区版转换器的实测结果是节点存在，但这种筛选生成空组。
 
 | 组 | 类型 | 成员 |
 | --- | --- | --- |
@@ -61,6 +61,9 @@ Clash 用 `!!GROUP=` 标签过滤，Shadowrocket 用 `policy-regex-filter=^EX·`
 
 改 `rules/*.list` 或 `leon.ini` / `leon.conf` → push。
 subconverter 默认缓存规则集 6 小时（`cache_ruleset`），Shadowrocket 在「配置 → 更新」时拉取。
+规则需要立即生效时，可更新 `leon.ini` 中对应规则 URL 的 `?v=` 版本标识，绕开旧规则缓存；外部配置本身也可能短暂缓存，更新后必须检查实际生成结果，而不是只检查 GitHub 文件。
+
+提交前运行 `python scripts/check-config.py` 和 `bash scripts/check-private.sh`。
 
 ## 致谢
 
