@@ -1,0 +1,33 @@
+# direct.list — 公共直连（Clash: DIRECT；Shadowrocket: DIRECT）
+# 格式：Surge/Shadowrocket classical（不带策略），subconverter 与 Shadowrocket RULE-SET 通用
+
+# --- 局域网 / 内网 ---
+IP-CIDR,10.0.0.0/8,no-resolve
+IP-CIDR,127.0.0.0/8,no-resolve
+IP-CIDR,169.254.0.0/16,no-resolve
+IP-CIDR,172.16.0.0/12,no-resolve
+IP-CIDR,192.168.0.0/16,no-resolve
+
+# --- JetBrains：IDE 更新 / Marketplace 下载不走不稳定的代理路径 ---
+DOMAIN-SUFFIX,jetbrains.com
+DOMAIN-SUFFIX,jetbrains.com.cn
+
+# --- Kiro / OpenCode 专用服务域名（PROCESS-NAME 规则只在电脑端 Script 里）---
+DOMAIN-SUFFIX,kiro.dev
+DOMAIN-SUFFIX,kiro.aws.dev
+DOMAIN,q.us-east-1.amazonaws.com
+DOMAIN,q.eu-central-1.amazonaws.com
+DOMAIN-SUFFIX,opencode.ai
+
+# --- WorkBuddy / CodeBuddy / Qoder 国内服务 ---
+DOMAIN-SUFFIX,workbuddy.cn
+DOMAIN-SUFFIX,codebuddy.cn
+DOMAIN-SUFFIX,qoder.cn
+DOMAIN-SUFFIX,qoder.com.cn
+DOMAIN,lingma-api.tongyi.aliyun.com
+DOMAIN,qoder.console.aliyun.com
+DOMAIN,marketplace.lingma.aliyun.com
+
+# --- Steam 下载 CDN 直连（登录/商店/社区走代理，见 steam.list）---
+DOMAIN-SUFFIX,steamcontent.com
+DOMAIN-SUFFIX,steampipe.steamcontent.com

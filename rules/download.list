@@ -1,0 +1,4 @@
+# download.list — 大文件下载（→ 下载专用：三毛 → 赔钱）
+DOMAIN-SUFFIX,github.com
+DOMAIN-SUFFIX,githubusercontent.com
+DOMAIN-SUFFIX,githubassets.com

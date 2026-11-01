@@ -1,0 +1,6 @@
+# steam.list — Steam 登录/商店/社区走代理（→ 🔰 节点选择）
+# 注意：steamserver.net 同时承载登录 CM 节点，不能整体直连
+DOMAIN-SUFFIX,steampowered.com
+DOMAIN-SUFFIX,steamcommunity.com
+DOMAIN-SUFFIX,steamstatic.com
+DOMAIN-SUFFIX,steamserver.net

@@ -1,0 +1,7 @@
+# work.list — 开发工具链（→ 主力故障转移）
+DOMAIN-SUFFIX,npmjs.org
+DOMAIN-SUFFIX,npmjs.com
+DOMAIN-SUFFIX,nuget.org
+DOMAIN-SUFFIX,zed.dev
+DOMAIN-SUFFIX,agentclientprotocol.com
+DOMAIN,learn.microsoft.com

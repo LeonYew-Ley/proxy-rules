@@ -1,0 +1,7 @@
+# tailscale.list — Tailscale 公共网段与控制面域名
+# Clash / Verge：DIRECT（电脑上 Tailscale 客户端自己连）
+# Shadowrocket 不用这个文件：它有内置 Tailscale 模块，用 TAILSCALE 策略，规则直接写在 leon.conf 里
+DOMAIN-SUFFIX,tailscale.com
+DOMAIN-SUFFIX,ts.net
+IP-CIDR,100.64.0.0/10,no-resolve
+IP-CIDR6,fd7a:115c:a1e0::/48,no-resolve

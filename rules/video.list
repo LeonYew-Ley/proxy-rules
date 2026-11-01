@@ -1,0 +1,9 @@
+# video.list — 大流量视频站（→ 视频出口）
+# 只放确认过的平台域名；不要加共享 CDN 后缀
+DOMAIN-SUFFIX,googlevideo.com
+DOMAIN-SUFFIX,video.twimg.com
+DOMAIN-SUFFIX,pornhub.com
+DOMAIN-SUFFIX,pornhubpremium.com
+DOMAIN-SUFFIX,phncdn.com
+DOMAIN-SUFFIX,missav.ai
+DOMAIN-SUFFIX,91quanji.com
