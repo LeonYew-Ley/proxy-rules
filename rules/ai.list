@@ -57,10 +57,11 @@ DOMAIN-SUFFIX,huggingface.co
 DOMAIN-KEYWORD,stun
 
 # 公共 DNS IP（DoH 经代理查询时与 AI 出口一致）
+DOMAIN-SUFFIX,ytimg.com
+DOMAIN-SUFFIX,youtube-nocookie.com
+DOMAIN-SUFFIX,youtubei.googleapis.com
+
 IP-CIDR,1.1.1.1/32,no-resolve
 IP-CIDR,1.0.0.1/32,no-resolve
 IP-CIDR,8.8.8.8/32,no-resolve
 IP-CIDR,8.8.4.4/32,no-resolve
-DOMAIN-SUFFIX,ytimg.com
-DOMAIN-SUFFIX,youtube-nocookie.com
-DOMAIN-SUFFIX,youtubei.googleapis.com
