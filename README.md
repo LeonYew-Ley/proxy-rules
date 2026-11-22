@@ -21,7 +21,7 @@
 
 | 列表 | 策略 | 说明 |
 | --- | --- | --- |
-| `direct.list` | DIRECT | 内网、JetBrains、Kiro/OpenCode 域名、WorkBuddy/Qoder 国内服务、Steam 下载 CDN、Oracle Cloud 注册域名 |
+| `direct.list` | DIRECT | 内网、JetBrains、Kiro/OpenCode/OpenCode Go（opencode.ai）域名、Trae CN 官方域名、WorkBuddy/Qoder 国内服务、Steam 下载 CDN、Oracle Cloud 注册域名 |
 | `tailscale.list` | DIRECT（仅 Clash） | Tailscale 公共网段与控制面域名；Shadowrocket 用 TAILSCALE 策略，规则写在 `leon.conf` |
 | `steam.list` | 🔰 节点选择 | Steam 登录/商店/社区 |
 | `video.list` | 视频出口 | 大流量视频站 |
