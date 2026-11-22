@@ -31,3 +31,7 @@ DOMAIN,marketplace.lingma.aliyun.com
 # --- Steam 下载 CDN 直连（登录/商店/社区走代理，见 steam.list）---
 DOMAIN-SUFFIX,steamcontent.com
 DOMAIN-SUFFIX,steampipe.steamcontent.com
+
+# --- Oracle Cloud 注册走直连，避免风控把代理 IP 判成可疑 ---
+DOMAIN-SUFFIX,oracle.com
+DOMAIN-SUFFIX,oraclecloud.com

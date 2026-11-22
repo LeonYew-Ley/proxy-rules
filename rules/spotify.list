@@ -1,0 +1,19 @@
+# spotify.list — Spotify 走台湾出口（Clash / Shadowrocket 共用）
+# 格式：Surge/Shadowrocket classical（不带策略）
+# 策略组 Spotify-TW：按节点名匹配台湾（不写死机场/节点名）；没有台湾节点时回落到主力故障转移
+
+DOMAIN-SUFFIX,spotify.com
+DOMAIN-SUFFIX,spotifycdn.com
+DOMAIN-SUFFIX,scdn.co
+DOMAIN-SUFFIX,spotify.design
+DOMAIN-SUFFIX,spotilocal.com
+DOMAIN-SUFFIX,pscdn.co
+DOMAIN-SUFFIX,spotifycdn.net
+DOMAIN-SUFFIX,audio-ak-spotify-com.akamaized.net
+DOMAIN-SUFFIX,audio4-ak-spotify-com.akamaized.net
+DOMAIN-SUFFIX,heads-ak-spotify-com.akamaized.net
+DOMAIN-SUFFIX,heads4-ak-spotify-com.akamaized.net
+DOMAIN-SUFFIX,spotify-com.akamaized.net
+DOMAIN-SUFFIX,spoti.fi
+DOMAIN-SUFFIX,byspotify.com
+DOMAIN-SUFFIX,spotify-everywhere.com

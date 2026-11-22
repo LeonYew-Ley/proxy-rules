@@ -40,7 +40,19 @@ for name, filters in groups.items():
         assert matches, "Group filter matched no fixture nodes"
         filtered.append(set(matches))
 
-assert len(groups) == 11
+assert len(groups) == 12
+
+spotify = groups["Spotify-TW"]
+tw_filters = [p for p in spotify if not p.startswith("[]")]
+assert tw_filters, "Spotify-TW needs a name filter"
+tw_re = tw_filters[0]
+assert re.search(tw_re, "EX·台湾")
+assert re.search(tw_re, "🇨🇳 台湾 06 家宽")
+assert re.search(tw_re, "SM·台灣")
+assert re.search(tw_re, "TW 01")
+assert not re.search(tw_re, "Twitch")
+assert not re.search(tw_re, "EX·Hong Kong")
+
 assert {nodes[1], nodes[2]} in filtered, "AI must include both preferred EX regions"
 assert {nodes[3], nodes[4]} in filtered, "Video must include both low-cost tiers"
 assert {nodes[5]} in filtered, "PQ backup must exclude low-cost video nodes"
@@ -84,4 +96,34 @@ for domain in [
         for suffix in download_suffixes
     ), "Missing Docker download rule: " + domain
 
-print("OK: group filters, references, video tiers, thumbnail rules, and Docker rules")
+
+spotify_rules = [
+    line.split(",", 1)[1]
+    for line in lines
+    if line.startswith("ruleset=Spotify-TW")
+]
+assert len(spotify_rules) == 2, "Clash should load both Spotify domain and process lists"
+assert all(urlsplit(url).query for url in spotify_rules), "Spotify rules need a cache version"
+assert any(
+    line.startswith("RULE-SET," + spotify_rules[0] + ",Spotify-TW") for line in shadowrocket
+), "Both clients must use the same Spotify domain rule version"
+assert all(
+    "spotify-process.list" not in line for line in shadowrocket
+), "PROCESS-NAME Spotify list is Clash-only"
+spotify_lines = (ROOT / "rules" / "spotify.list").read_text(encoding="utf-8").splitlines()
+for domain in ["spotify.com", "spotifycdn.com", "scdn.co", "spotilocal.com"]:
+    assert f"DOMAIN-SUFFIX,{domain}" in spotify_lines, "Missing Spotify rule: " + domain
+direct_lines = (ROOT / "rules" / "direct.list").read_text(encoding="utf-8").splitlines()
+assert "DOMAIN-SUFFIX,oracle.com" in direct_lines
+assert "DOMAIN-SUFFIX,oraclecloud.com" in direct_lines
+direct_rule = next(
+    line.split(",", 1)[1]
+    for line in lines
+    if line.startswith("ruleset=") and "/rules/direct.list" in line
+)
+assert urlsplit(direct_rule).query, "Direct rules need a cache version after Oracle addition"
+assert any(
+    line.startswith("RULE-SET," + direct_rule + ",") for line in shadowrocket
+), "Both clients must use the same direct rule version"
+
+print("OK: group filters, references, video tiers, thumbnail rules, Docker rules, and Spotify-TW")

@@ -1,0 +1,4 @@
+# spotify-process.list — 仅 Clash / Clash Verge（Shadowrocket 不用本文件）
+# 让桌面客户端进程也走 Spotify-TW。PROCESS-NAME 只在电脑端可靠。
+
+PROCESS-NAME,Spotify.exe
